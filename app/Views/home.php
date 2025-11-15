@@ -3,24 +3,24 @@
 <?= $this->section('styles') ?>
 <style>
     .hero-banner {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green-dark) 100%);
         border-radius: 25px;
         padding: 60px 40px;
         color: white;
         position: relative;
         overflow: hidden;
         margin-bottom: 30px;
+        box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
     }
 
     .hero-banner::before {
-        content: '';
+        content: '☪';
         position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 500px;
-        height: 500px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
+        top: -20px;
+        right: 5%;
+        font-size: 250px;
+        opacity: 0.08;
+        transform: rotate(15deg);
     }
 
     .hero-banner::after {
@@ -50,6 +50,7 @@
         font-size: 1.2rem;
         opacity: 0.95;
         margin-bottom: 25px;
+        line-height: 1.8;
     }
 
     .hero-stats {
@@ -61,6 +62,16 @@
 
     .hero-stat-item {
         text-align: center;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 15px 25px;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .hero-stat-item:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateY(-5px);
     }
 
     .hero-stat-item .number {
@@ -81,8 +92,8 @@
         border-radius: 20px;
         padding: 30px;
         height: 100%;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid #e5e7eb;
         position: relative;
         overflow: hidden;
     }
@@ -94,7 +105,7 @@
         left: 0;
         width: 100%;
         height: 4px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
+        background: linear-gradient(90deg, var(--primary-green), var(--secondary-green));
         transform: scaleX(0);
         transition: transform 0.3s ease;
     }
@@ -105,7 +116,8 @@
 
     .feature-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+        border-color: var(--primary-green);
     }
 
     .feature-icon {
@@ -117,20 +129,20 @@
         justify-content: center;
         font-size: 2rem;
         margin-bottom: 20px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green-dark) 100%);
         color: white;
-        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
     }
 
     .feature-card h3 {
         font-size: 1.4rem;
         font-weight: 600;
         margin-bottom: 10px;
-        color: #2c3e50;
+        color: #1f2937;
     }
 
     .feature-card p {
-        color: #7f8c8d;
+        color: #6b7280;
         margin-bottom: 20px;
         line-height: 1.6;
     }
@@ -149,12 +161,13 @@
         transition: all 0.3s ease;
         cursor: pointer;
         border: 2px solid transparent;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     .quick-action:hover {
-        border-color: #667eea;
+        border-color: var(--primary-green);
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
     }
 
     .quick-action-icon {
@@ -166,21 +179,21 @@
         justify-content: center;
         margin: 0 auto 15px;
         font-size: 1.8rem;
-        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-        color: #667eea;
+        background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+        color: var(--primary-green);
     }
 
     .quick-action h4 {
         font-size: 1rem;
         font-weight: 600;
-        color: #2c3e50;
+        color: #1f2937;
         margin: 0;
     }
 
     .section-title {
         font-size: 1.8rem;
         font-weight: 700;
-        color: #2c3e50;
+        color: #1f2937;
         margin-bottom: 25px;
         position: relative;
         padding-left: 20px;
@@ -194,7 +207,7 @@
         transform: translateY(-50%);
         width: 5px;
         height: 30px;
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
         border-radius: 3px;
     }
 
@@ -204,11 +217,13 @@
         padding: 25px;
         text-align: center;
         transition: all 0.3s ease;
+        border: 2px solid #e5e7eb;
     }
 
     .stats-mini:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        border-color: var(--primary-green);
     }
 
     .stats-mini .icon {
@@ -219,14 +234,32 @@
     .stats-mini .number {
         font-size: 2rem;
         font-weight: 700;
-        color: #2c3e50;
+        color: #1f2937;
         display: block;
     }
 
     .stats-mini .label {
-        color: #7f8c8d;
+        color: #6b7280;
         font-size: 0.9rem;
         margin-top: 5px;
+    }
+
+    .cta-card {
+        background: linear-gradient(135deg, var(--secondary-green) 0%, var(--primary-green-dark) 100%);
+        border: none;
+        border-radius: 25px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .cta-card::before {
+        content: '☪';
+        position: absolute;
+        bottom: -30px;
+        right: -20px;
+        font-size: 200px;
+        opacity: 0.1;
+        transform: rotate(-15deg);
     }
 
     @media (max-width: 768px) {
@@ -239,12 +272,24 @@
         }
 
         .hero-stats {
-            gap: 20px;
+            gap: 15px;
+        }
+
+        .hero-stat-item {
+            padding: 10px 15px;
+        }
+
+        .hero-stat-item .number {
+            font-size: 1.8rem;
         }
 
         .feature-card {
             padding: 20px;
             margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
         }
     }
 </style>
@@ -261,19 +306,19 @@
                 <p class="lead mb-0">Platform digital lengkap untuk meningkatkan pemahaman dan pengamalan Islam Anda. Akses Al-Quran, Hadits, Doa, Quiz, dan tracking ibadah harian.</p>
 
                 <div class="hero-stats">
-                    <div class="hero-stat-item">
+                    <div class="hero-stat-item animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
                         <span class="number">114</span>
                         <span class="label">Surah</span>
                     </div>
-                    <div class="hero-stat-item">
+                    <div class="hero-stat-item animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
                         <span class="number">6,236</span>
                         <span class="label">Ayat</span>
                     </div>
-                    <div class="hero-stat-item">
+                    <div class="hero-stat-item animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
                         <span class="number">1000+</span>
                         <span class="label">Hadits</span>
                     </div>
-                    <div class="hero-stat-item">
+                    <div class="hero-stat-item animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
                         <span class="number">50+</span>
                         <span class="label">Doa Harian</span>
                     </div>
@@ -325,12 +370,12 @@
     <!-- Jadwal Shalat -->
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
-            <div class="feature-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">
                 <i class="fas fa-mosque"></i>
             </div>
             <h3>Jadwal Shalat</h3>
             <p>Lihat jadwal waktu shalat berdasarkan lokasi Anda dan kalender Hijriyah. Tidak akan terlewat waktu shalat lagi.</p>
-            <a href="<?= base_url('/shalat') ?>" class="btn btn-danger">
+            <a href="<?= base_url('/shalat') ?>" class="btn btn-info">
                 <i class="fas fa-clock mr-2"></i>Lihat Jadwal
             </a>
         </div>
@@ -339,7 +384,7 @@
     <!-- Doa & Dzikir -->
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-            <div class="feature-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
                 <i class="fas fa-hands-praying"></i>
             </div>
             <h3>Doa & Dzikir</h3>
@@ -353,12 +398,12 @@
     <!-- Hadits -->
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
-            <div class="feature-icon" style="background: linear-gradient(135deg, #2196f3 0%, #1e88e5 100%);">
+            <div class="feature-icon" style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);">
                 <i class="fas fa-scroll"></i>
             </div>
             <h3>Hadits Shahih</h3>
             <p>Koleksi hadits dari Bukhari, Muslim, Tirmidzi, dan lainnya. Pelajari sunnah Rasulullah SAW dengan mudah.</p>
-            <a href="<?= base_url('/hadith') ?>" class="btn btn-info">
+            <a href="<?= base_url('/hadith') ?>" class="btn btn-success">
                 <i class="fas fa-book mr-2"></i>Baca Hadits
             </a>
         </div>
@@ -367,12 +412,12 @@
     <!-- Kisah Islami -->
     <div class="col-lg-4 col-md-6 mb-4">
         <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
-            <div class="feature-icon" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
                 <i class="fas fa-book-open"></i>
             </div>
             <h3>Kisah Inspiratif</h3>
             <p>Baca kisah-kisah inspiratif para Nabi dan Sahabat. Ambil pelajaran dan hikmah untuk kehidupan Anda.</p>
-            <a href="<?= base_url('/kisah') ?>" class="btn btn-secondary">
+            <a href="<?= base_url('/kisah') ?>" class="btn btn-primary">
                 <i class="fas fa-bookmark mr-2"></i>Baca Kisah
             </a>
         </div>
@@ -469,15 +514,15 @@
 <!-- Call to Action for Guest -->
 <div class="row mb-5">
     <div class="col-12">
-        <div class="card islamic-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
-            <div class="card-body text-center py-5 text-white">
+        <div class="card cta-card">
+            <div class="card-body text-center py-5 text-white position-relative">
                 <h2 class="mb-3"><i class="fas fa-user-plus mr-2"></i>Bergabung Sekarang!</h2>
                 <p class="lead mb-4">Daftar untuk mengakses fitur lengkap: Quiz, Habit Tracker, dan tracking progress pembelajaran Anda.</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="<?= base_url('/auth/register') ?>" class="btn btn-light btn-lg mr-3">
+                <div class="d-flex justify-content-center flex-wrap gap-3">
+                    <a href="<?= base_url('/auth/register') ?>" class="btn btn-light btn-lg mr-3 mb-2">
                         <i class="fas fa-user-plus mr-2"></i>Daftar Gratis
                     </a>
-                    <a href="<?= base_url('/auth/login') ?>" class="btn btn-outline-light btn-lg">
+                    <a href="<?= base_url('/auth/login') ?>" class="btn btn-outline-light btn-lg mb-2">
                         <i class="fas fa-sign-in-alt mr-2"></i>Login
                     </a>
                 </div>

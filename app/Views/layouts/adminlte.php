@@ -24,13 +24,12 @@
 
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --info-gradient: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-            --purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --green-gradient: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
+            --primary-gradient: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            --secondary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --success-gradient: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --info-gradient: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            --green-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
             --orange-gradient: linear-gradient(135deg, #f46b45 0%, #eea849 100%);
             --blue-gradient: linear-gradient(135deg, #2196f3 0%, #1e88e5 100%);
         }
@@ -40,7 +39,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
             min-height: 100vh;
         }
 
@@ -54,35 +53,35 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #764ba2;
+            background: #16a34a;
         }
 
         /* Navbar Modern */
         .main-header {
             background: white !important;
             border-bottom: none !important;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 20px rgba(16, 185, 129, 0.08);
         }
 
         .navbar-light .navbar-nav .nav-link {
-            color: #333 !important;
+            color: #1f2937 !important;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
         .navbar-light .navbar-nav .nav-link:hover {
-            color: #667eea !important;
+            color: #10b981 !important;
             transform: translateY(-2px);
         }
 
         /* Sidebar Modern */
         .main-sidebar {
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
+            background: linear-gradient(180deg, #065f46 0%, #047857 100%) !important;
             box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -155,19 +154,19 @@
         }
 
         .islamic-card {
-            border-top: none !important;
+            border-top: 4px solid #10b981 !important;
             position: relative;
             overflow: hidden;
         }
 
         .islamic-card::before {
-            content: '';
+            content: '☪';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary-gradient);
+            top: 10px;
+            right: 15px;
+            font-size: 3rem;
+            opacity: 0.03;
+            color: #10b981;
         }
 
         /* Small Box Modern */
@@ -236,11 +235,11 @@
         }
 
         .bg-primary {
-            background: var(--purple-gradient) !important;
+            background: var(--primary-gradient) !important;
         }
 
         .bg-secondary {
-            background: var(--info-gradient) !important;
+            background: var(--secondary-gradient) !important;
         }
 
         /* Verse Text Modern */
