@@ -23,20 +23,29 @@
                 <div class="row">
                     <?php if (!empty($doa_list)): ?>
                         <?php foreach ($doa_list as $doa): ?>
-                            <div class="col-md-6">
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?= esc($doa['doa'] ?? 'Doa') ?></h5>
-                                        <a href="<?= base_url('/doa/' . ($doa['id'] ?? '')) ?>" class="btn btn-primary btn-sm">
-                                            <i class="fas fa-book-open"></i> Lihat Detail
-                                        </a>
+                            <div class="col-lg-4 col-md-6 mb-3">
+                                <div class="card h-100 shadow-sm hover-card">
+                                    <div class="card-body d-flex flex-column">
+                                        <div class="mb-3">
+                                            <span class="badge badge-primary mb-2">
+                                                <i class="fas fa-hands-praying"></i> Doa
+                                            </span>
+                                            <h5 class="card-title font-weight-bold mb-0">
+                                                <?= esc($doa['doa'] ?? 'Doa') ?>
+                                            </h5>
+                                        </div>
+                                        <div class="mt-auto">
+                                            <a href="<?= base_url('/doa/' . ($doa['id'] ?? '')) ?>" class="btn btn-primary btn-sm btn-block">
+                                                <i class="fas fa-book-open"></i> Lihat Detail
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <div class="col-12">
-                            <div class="alert alert-warning">
+                            <div class="alert alert-info">
                                 <i class="fas fa-exclamation-triangle"></i> Tidak ada doa yang ditemukan.
                             </div>
                         </div>

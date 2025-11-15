@@ -50,7 +50,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <div class="col-12">
-                            <div class="alert alert-warning">
+                            <div class="alert alert-info">
                                 <i class="fas fa-exclamation-triangle"></i> Tidak dapat memuat data surah. Silakan coba lagi nanti.
                             </div>
                         </div>
@@ -60,20 +60,5 @@
         </div>
     </div>
 </div>
-
-<?= $this->section('styles') ?>
-<style>
-    .hover-card {
-        transition: all 0.3s ease;
-        border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
-        border-color: #667eea;
-    }
-</style>
-<?= $this->endSection() ?>
 
 <?= $this->endSection() ?>

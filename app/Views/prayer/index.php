@@ -9,42 +9,56 @@
             </div>
             <div class="card-body">
                 <?php if (!empty($prayer_data)): ?>
-                    <div class="alert alert-info">
-                        <strong><i class="fas fa-map-marker-alt"></i> Lokasi:</strong> <?= esc($city) ?>, <?= esc($country) ?><br>
-                        <strong><i class="fas fa-calendar"></i> Tanggal:</strong>
-                        <?= isset($prayer_data['date']['readable']) ? esc($prayer_data['date']['readable']) : date('d F Y') ?>
+                    <div class="alert alert-info mb-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-map-marker-alt fa-lg mr-2"></i>
+                            <strong class="mr-2">Lokasi:</strong>
+                            <span><?= esc($city) ?>, <?= esc($country) ?></span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-calendar fa-lg mr-2"></i>
+                            <strong class="mr-2">Tanggal:</strong>
+                            <span><?= isset($prayer_data['date']['readable']) ? esc($prayer_data['date']['readable']) : date('d F Y') ?></span>
+                        </div>
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
+                        <table class="table table-hover modern-table">
+                            <thead class="thead-light">
                                 <tr>
-                                    <th width="50%">Waktu Shalat</th>
-                                    <th>Waktu</th>
+                                    <th width="50%" class="border-0"><i class="fas fa-mosque mr-2"></i>Waktu Shalat</th>
+                                    <th class="border-0"><i class="fas fa-clock mr-2"></i>Waktu</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $timings = $prayer_data['timings'] ?? [];
                                 $prayers = [
-                                    'Fajr' => 'Subuh',
-                                    'Dhuhr' => 'Dzuhur',
-                                    'Asr' => 'Ashar',
-                                    'Maghrib' => 'Maghrib',
-                                    'Isha' => 'Isya',
+                                    'Fajr' => ['Subuh', 'fa-cloud-sun'],
+                                    'Dhuhr' => ['Dzuhur', 'fa-sun'],
+                                    'Asr' => ['Ashar', 'fa-cloud-sun'],
+                                    'Maghrib' => ['Maghrib', 'fa-sunset'],
+                                    'Isha' => ['Isya', 'fa-moon'],
                                 ];
                                 ?>
-                                <?php foreach ($prayers as $key => $name): ?>
-                                    <tr>
-                                        <td><i class="fas fa-pray"></i> <strong><?= $name ?></strong></td>
-                                        <td><?= isset($timings[$key]) ? esc(substr($timings[$key], 0, 5)) : '-' ?></td>
+                                <?php foreach ($prayers as $key => $data): ?>
+                                    <tr class="prayer-row">
+                                        <td>
+                                            <i class="fas <?= $data[1] ?> text-primary mr-2"></i>
+                                            <strong><?= $data[0] ?></strong>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-primary px-3 py-2">
+                                                <?= isset($timings[$key]) ? esc(substr($timings[$key], 0, 5)) : '-' ?>
+                                            </span>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
                 <?php else: ?>
-                    <div class="alert alert-warning">
+                    <div class="alert alert-info">
                         <i class="fas fa-exclamation-triangle"></i> Tidak dapat memuat jadwal shalat. Silakan coba lagi.
                     </div>
                 <?php endif; ?>

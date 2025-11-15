@@ -1,0 +1,372 @@
+/* Portal Islami - Custom Styles */
+/* Enhanced UI Design for Better User Experience */
+
+/* Verse Text - Arabic Font */
+.verse-text {
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    line-height: 2;
+}
+
+/* Modern Badges */
+.badge {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+}
+
+.badge-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+}
+
+.badge-success {
+    background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
+    border: none;
+    color: white;
+}
+
+.badge-info {
+    background: linear-gradient(135deg, #2196f3 0%, #1e88e5 100%);
+    border: none;
+    color: white;
+}
+
+.badge-warning {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    border: none;
+    color: white;
+}
+
+/* Modern Buttons */
+.btn {
+    border-radius: 50px;
+    padding: 0.6rem 1.8rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    text-transform: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(11, 163, 96, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(11, 163, 96, 0.4);
+    color: white;
+}
+
+.btn-sm {
+    padding: 0.4rem 1.2rem;
+    font-size: 0.875rem;
+}
+
+/* Hover Cards for Lists */
+.hover-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid #f0f0f0;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15) !important;
+    border-color: #667eea;
+}
+
+.hover-card:hover .btn-primary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* Card Modern Design */
+.card {
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-bottom: 2px solid #f0f0f0;
+    padding: 1.5rem 2rem;
+}
+
+.card-header h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0;
+}
+
+.card-header h3 i {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-right: 0.5rem;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Alert Modern */
+.alert {
+    border: none;
+    border-radius: 15px;
+    border-left: 4px solid;
+    padding: 1.25rem 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-left-color: #2196f3;
+    color: #1565c0;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-left-color: #ff9800;
+    color: #e65100;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-left-color: #4caf50;
+    color: #2e7d32;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-left-color: #f44336;
+    color: #c62828;
+}
+
+/* Page Title Gradient */
+.content-header h1 {
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Islamic Decorative Elements */
+.islamic-pattern {
+    position: relative;
+    padding: 2rem;
+}
+
+.islamic-pattern::before {
+    content: '☪';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 4rem;
+    opacity: 0.05;
+    color: #667eea;
+}
+
+/* Text Styles */
+.text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
+
+.text-muted {
+    color: #6c757d !important;
+    font-size: 0.9rem;
+}
+
+/* List Group Modern */
+.list-group-item {
+    border: none;
+    border-radius: 15px !important;
+    margin-bottom: 0.75rem;
+    background: white;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+    padding: 1.25rem 1.5rem;
+}
+
+.list-group-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Table Modern */
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background: #f8f9fa;
+    transform: scale(1.01);
+}
+
+.table tbody td {
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Form Controls */
+.form-control {
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+/* Loading Spinner */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.35rem;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15rem;
+}
+
+/* Responsive Spacing */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    .card-header {
+        padding: 1rem 1.25rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .badge {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .alert {
+        padding: 1rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-header h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Shadow Utilities */
+.shadow-soft {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.shadow-hover {
+    transition: box-shadow 0.3s ease;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Border Radius Utilities */
+.rounded-lg {
+    border-radius: 15px !important;
+}
+
+.rounded-xl {
+    border-radius: 20px !important;
+}
+
+.rounded-2xl {
+    border-radius: 25px !important;
+}
