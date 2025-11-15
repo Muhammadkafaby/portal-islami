@@ -41,10 +41,9 @@ class QuranController extends BaseController
         }
 
         $data = [
-            'title' => $surahData['surah']['name_simple'] . ' - Al-Quran',
-            'page_title' => $surahData['surah']['name_simple'],
-            'surah' => $surahData['surah'],
-            'verses' => $surahData['verses'],
+            'title' => ($surahData['nama_latin'] ?? 'Surah') . ' - Al-Quran',
+            'page_title' => $surahData['nama_latin'] ?? 'Al-Quran',
+            'surah' => $surahData,
         ];
 
         return view('quran/surah', $data);

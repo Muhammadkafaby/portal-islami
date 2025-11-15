@@ -6,31 +6,42 @@
         <div class="card islamic-card">
             <div class="card-header">
                 <h3 class="card-title"><i class="fas fa-book-quran"></i> Daftar Surah Al-Quran</h3>
+                <div class="card-tools">
+                    <span class="badge badge-primary">114 Surah</span>
+                </div>
             </div>
             <div class="card-body">
                 <div class="row">
                     <?php if (!empty($surahs)): ?>
                         <?php foreach ($surahs as $surah): ?>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card mb-3">
+                            <div class="col-lg-4 col-md-6 mb-3">
+                                <div class="card h-100 shadow-sm hover-card">
                                     <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
                                             <div>
-                                                <h5 class="mb-1">
-                                                    <?= esc($surah['id']) ?>. <?= esc($surah['name_simple']) ?>
-                                                </h5>
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <div class="badge badge-primary mr-2" style="font-size: 1rem;">
+                                                        <?= esc($surah['nomor']) ?>
+                                                    </div>
+                                                    <h5 class="mb-0 font-weight-bold">
+                                                        <?= esc($surah['nama_latin']) ?>
+                                                    </h5>
+                                                </div>
                                                 <small class="text-muted">
-                                                    <?= esc($surah['translated_name']['name'] ?? '') ?>
-                                                    | <?= esc($surah['verses_count']) ?> Ayat
+                                                    <i class="fas fa-language"></i> <?= esc($surah['arti']) ?>
+                                                </small>
+                                                <br>
+                                                <small class="text-muted">
+                                                    <i class="fas fa-list-ol"></i> <?= esc($surah['jumlah_ayat']) ?> Ayat
                                                 </small>
                                             </div>
                                             <div class="text-right">
-                                                <div class="verse-text" style="font-size: 1.5rem;">
-                                                    <?= esc($surah['name_arabic']) ?>
+                                                <div class="verse-text" style="font-size: 2rem; line-height: 1;">
+                                                    <?= esc($surah['nama']) ?>
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="<?= base_url('/quran/surah/' . $surah['id']) ?>" class="btn btn-primary btn-sm btn-block mt-2">
+                                        <a href="<?= base_url('/quran/surah/' . $surah['nomor']) ?>" class="btn btn-primary btn-sm btn-block">
                                             <i class="fas fa-book-open"></i> Baca Surah
                                         </a>
                                     </div>
@@ -49,4 +60,20 @@
         </div>
     </div>
 </div>
+
+<?= $this->section('styles') ?>
+<style>
+    .hover-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+        border-color: #667eea;
+    }
+</style>
+<?= $this->endSection() ?>
+
 <?= $this->endSection() ?>
