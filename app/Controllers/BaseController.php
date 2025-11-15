@@ -43,4 +43,38 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
+
+    /**
+     * Handle API errors gracefully
+     */
+    protected function handleApiError($service, $error, $defaultMessage = 'Terjadi kesalahan saat mengambil data')
+    {
+        log_message('error', "API Error in {$service}: " . $error);
+
+        return [
+            'success' => false,
+            'message' => $defaultMessage,
+            'data' => []
+        ];
+    }
+
+    /**
+     * Check if API response is valid
+     */
+    protected function isValidApiResponse($data)
+    {
+        return !empty($data) && is_array($data);
+    }
+
+    /**
+     * Format API response
+     */
+    protected function formatApiResponse($data, $message = 'Data berhasil diambil')
+    {
+        return [
+            'success' => true,
+            'message' => $message,
+            'data' => $data
+        ];
+    }
 }
