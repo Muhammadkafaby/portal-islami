@@ -35,10 +35,14 @@ class QuranApiService
 
             if ($response->getStatusCode() === 200) {
                 $data = json_decode($response->getBody(), true);
-                return $data ?? [];
+                if (!empty($data) && is_array($data)) {
+                    return $data;
+                }
             }
 
-            return [];
+            // If status is not 200 or data is invalid, use fallback
+            log_message('info', 'QuranAPI: Using fallback data (Status: ' . $response->getStatusCode() . ')');
+            return $this->getFallbackSurahList();
         } catch (\Exception $e) {
             log_message('error', 'QuranAPI Error getSurahList: ' . $e->getMessage());
             return $this->getFallbackSurahList();
@@ -57,10 +61,14 @@ class QuranApiService
 
             if ($response->getStatusCode() === 200) {
                 $data = json_decode($response->getBody(), true);
-                return $data ?? null;
+                if (!empty($data) && is_array($data)) {
+                    return $data;
+                }
             }
 
-            return null;
+            // If status is not 200 or data is invalid, use fallback
+            log_message('info', 'QuranAPI: Using fallback surah detail (Status: ' . $response->getStatusCode() . ')');
+            return $this->getFallbackSurahDetail($surahNumber);
         } catch (\Exception $e) {
             log_message('error', 'QuranAPI Error getSurah: ' . $e->getMessage());
             return $this->getFallbackSurahDetail($surahNumber);

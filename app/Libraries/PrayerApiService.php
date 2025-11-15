@@ -39,10 +39,14 @@ class PrayerApiService
 
             if ($response->getStatusCode() === 200) {
                 $data = json_decode($response->getBody(), true);
-                return $data['data'] ?? [];
+                if (!empty($data['data'])) {
+                    return $data['data'];
+                }
             }
 
-            return [];
+            // Use fallback
+            log_message('info', 'PrayerAPI: Using fallback prayer times');
+            return $this->getFallbackPrayerTimes($city, $country);
         } catch (\Exception $e) {
             log_message('error', 'PrayerAPI Error: ' . $e->getMessage());
             return $this->getFallbackPrayerTimes($city, $country);
@@ -99,10 +103,14 @@ class PrayerApiService
 
             if ($response->getStatusCode() === 200) {
                 $data = json_decode($response->getBody(), true);
-                return $data['data']['hijri'] ?? [];
+                if (!empty($data['data']['hijri'])) {
+                    return $data['data']['hijri'];
+                }
             }
 
-            return [];
+            // Use fallback
+            log_message('info', 'PrayerAPI: Using fallback Hijri date');
+            return $this->getFallbackHijriDate();
         } catch (\Exception $e) {
             log_message('error', 'PrayerAPI Error getTodayHijriDate: ' . $e->getMessage());
             return $this->getFallbackHijriDate();

@@ -32,10 +32,14 @@ class DoaApiService
 
             if ($response->getStatusCode() === 200) {
                 $data = json_decode($response->getBody(), true);
-                return $data ?? [];
+                if (!empty($data) && is_array($data)) {
+                    return $data;
+                }
             }
 
-            return [];
+            // If status is not 200 or data is invalid, use fallback
+            log_message('info', 'DoaAPI: Using fallback data');
+            return $this->getFallbackDoaList();
         } catch (\Exception $e) {
             log_message('error', 'DoaAPI Error: ' . $e->getMessage());
             return $this->getFallbackDoaList();
@@ -58,9 +62,19 @@ class DoaApiService
 
             if ($response->getStatusCode() === 200) {
                 $data = json_decode($response->getBody(), true);
-                return $data ?? null;
+                if (!empty($data)) {
+                    return $data;
+                }
             }
 
+            // Use fallback
+            log_message('info', 'DoaAPI: Using fallback for doa ID ' . $id);
+            $allDoa = $this->getFallbackDoaList();
+            foreach ($allDoa as $doa) {
+                if ($doa['id'] == $id) {
+                    return $doa;
+                }
+            }
             return null;
         } catch (\Exception $e) {
             log_message('error', 'DoaAPI Error getDoaById: ' . $e->getMessage());

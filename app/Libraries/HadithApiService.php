@@ -32,10 +32,14 @@ class HadithApiService
 
             if ($response->getStatusCode() === 200) {
                 $data = json_decode($response->getBody(), true);
-                return $data['data'] ?? [];
+                if (!empty($data['data']) && is_array($data['data'])) {
+                    return $data['data'];
+                }
             }
 
-            return [];
+            // Use fallback
+            log_message('info', 'HadithAPI: Using fallback books');
+            return $this->getFallbackBooks();
         } catch (\Exception $e) {
             log_message('error', 'HadithAPI Error getBooks: ' . $e->getMessage());
             return $this->getFallbackBooks();
@@ -62,10 +66,14 @@ class HadithApiService
 
             if ($response->getStatusCode() === 200) {
                 $data = json_decode($response->getBody(), true);
-                return $data['data'] ?? [];
+                if (!empty($data['data']) && is_array($data['data'])) {
+                    return $data['data'];
+                }
             }
 
-            return [];
+            // Use fallback
+            log_message('info', 'HadithAPI: Using fallback hadith list for ' . $bookId);
+            return $this->getFallbackHadithList($bookId);
         } catch (\Exception $e) {
             log_message('error', 'HadithAPI Error getHadithList: ' . $e->getMessage());
             return $this->getFallbackHadithList($bookId);
